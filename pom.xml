@@ -94,8 +94,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-                            		<finalName>ROOT</finalName>
-                        	</configuration>
+				    <mainClass>${start-class}</mainClass>
+				    <layout>WAR</layout>
+				    <profiles>
+					<profile>openshift</profile>
+				    </profiles>
+				    <finalName>ROOT</finalName>
+				</configuration>
+				<executions>
+				    <execution>
+					<goals>
+					    <goal>repackage</goal>
+					</goals>
+				    </execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
